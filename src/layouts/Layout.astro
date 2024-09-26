@@ -1,50 +1,121 @@
 ---
+import '../styles/globals.css'
+import Whatsaap from '@/components/Whatsaap.astro'
+
 interface Props {
-	title: string;
+  title: string
 }
 
-const { title } = Astro.props;
+const { title } = Astro.props
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html
+  lang='en'
+  class='scroll-smooth'
+>
+  <head>
+    <meta charset='UTF-8' />
+    <meta
+      name='description'
+      content='En Novoforma, somos expertos en construcción y reformas para hogares y negocios. Ofrecemos soluciones personalizadas con más de 20 años de experiencia en proyectos de alta calidad. Contáctanos para un presupuesto gratuito.'
+    />
+    <meta
+      name='keywords'
+      content='reformas, construcción, reformas de hogar, reformas comerciales, renovación de espacios, proyectos de construcción, empresa de reformas, reformas integrales, reformas en Barcelona, presupuesto reformas, reformas oficinas, reformas locales comerciales'
+    />
+    <meta
+      name='viewport'
+      content='width=device-width'
+    />
+    <link
+      rel='icon'
+      type='image/svg+xml'
+      href='/favicon.svg'
+    />
+    <meta
+      name='generator'
+      content={Astro.generator}
+    />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class='flex flex-col min-h-screen bg-zinc-50 text-zinc-900 overflow-x-hidden'>
+      <header class='px-2 bg-zinc-50 text-zinc-900 fixed top-0 w-full z-50 border-b shadow-sm'>
+        <div class='container mx-auto flex items-center justify-between gap-8 h-16'>
+          <a
+            class='flex items-center justify-center gap-2'
+            href='#'
+          >
+            <span class='font-semibold text-xl uppercase'
+              ><span class='font-black text-primary-600'>Novo</span>forma</span
+            >
+          </a>
+          <nav class='ml-auto hidden gap-4 lg:flex'>
+            <a
+              class='text-sm font-medium hover:text-primary-500 transition-colors'
+              href='#servicios'
+            >
+              Servicios
+            </a>
+            <a
+              class='text-sm font-medium hover:text-primary-500 transition-colors'
+              href='#galeria'
+            >
+              Galería
+            </a>
+            <a
+              class='text-sm font-medium hover:text-primary-500 transition-colors'
+              href='#nosotros'
+            >
+              Nosotros
+            </a>
+            <a
+              class='text-sm font-medium hover:text-primary-500 transition-colors'
+              href='#testimonios'
+            >
+              Testimonios
+            </a>
+            <a
+              class='text-sm font-medium hover:text-primary-500 transition-colors'
+              href='#contacto'
+            >
+              Contacto
+            </a>
+          </nav>
+          <div class='flex items-center gap-4 lg:flex-row-reverse'>
+            <a
+              href='#contacto'
+              class='bg-sky-600 text-sky-50 font-semibold p-4 cursor-pointer rounded-sm hover:bg-primary-700 hover:transition-all'
+              >Obtener Presupuesto</a
+            >
+          </div>
+        </div>
+      </header>
+
+      <slot />
+
+      <Whatsaap />
+
+      <footer class='py-6 w-full px-4 md:px-6 border-t border-zinc-300 bg-zinc-900 text-zinc-50'>
+        <div class='container mx-auto flex flex-col gap-2 sm:flex-row shrink-0 items-center'>
+          <p class='text-xs text-zinc-400'>© 2024 Novoforma. Todos los derechos reservados.</p>
+          <nav class='sm:ml-auto flex gap-4 sm:gap-6'>
+            <a
+              class='text-xs hover:underline underline-offset-4 text-zinc-400 hover:text-primary-500'
+              href='#'
+            >
+              Términos de Servicio
+            </a>
+            <a
+              class='text-xs hover:underline underline-offset-4 text-zinc-400 hover:text-primary-500'
+              href='#'
+            >
+              Privacidad
+            </a>
+          </nav>
+        </div>
+      </footer>
+    </div>
+  </body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>
