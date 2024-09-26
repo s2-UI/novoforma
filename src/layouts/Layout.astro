@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets'
 import '../styles/globals.css'
 import Whatsaap from '@/components/Whatsaap.astro'
+import { Phone } from 'lucide-react'
 
 interface Props {
   title: string
@@ -46,13 +47,45 @@ const { title } = Astro.props
         <div class='container mx-auto flex items-center justify-between gap-8 h-16'>
           <a
             class='flex items-center justify-center gap-2'
-            href='#'
+            href='/'
+            title="Novoforma"
           >
-          <Image src='/logo.png' alt='Novoforma' width={50} height={50} />
+            <Image
+              src='/logo.png'
+              alt='Novoforma'
+              width={214}
+              height={161}
+              class='w-14'
+              loading={'eager'}
+            />
             <span class='font-semibold text-xl uppercase'
               ><span class='font-black text-primary-600'>Novo</span>forma</span
             >
           </a>
+          <div class="hidden items-center justify-center gap-8 flex-1 lg:flex">
+            <div class='flex items-center'>
+              <Phone className='mr-2 h-4 w-4 text-primary-400' />
+              <span class='prose prose-invert'
+                ><a
+                  href='tel:667757013'
+                  title='+34 667 757 013'
+                  class='hover:text-primary-400'
+                  >+34 667 757 013</a
+                ></span
+              >
+            </div>
+            <div class='flex items-center'>
+              <Phone className='mr-2 h-4 w-4 text-primary-400' />
+              <span class='prose prose-invert'
+                ><a
+                  href='tel:696460538'
+                  title='+34 696 460 538'
+                  class='hover:text-primary-400'
+                  >+34 696 460 538</a
+                ></span
+              >
+            </div>
+          </div>
           <nav class='ml-auto hidden gap-4 lg:flex'>
             <a
               class='text-sm font-medium hover:text-primary-500 transition-colors'
@@ -105,13 +138,13 @@ const { title } = Astro.props
           <nav class='sm:ml-auto flex gap-4 sm:gap-6'>
             <a
               class='text-xs hover:underline underline-offset-4 text-zinc-400 hover:text-primary-500'
-              href='#'
+              href='/conditions-use'
             >
               Términos de Servicio
             </a>
             <a
               class='text-xs hover:underline underline-offset-4 text-zinc-400 hover:text-primary-500'
-              href='#'
+              href='/privacity'
             >
               Privacidad
             </a>

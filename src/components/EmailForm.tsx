@@ -23,7 +23,7 @@ const EmailForm = () => {
         },
         body: JSON.stringify({
           from: 'Acme <onboarding@resend.dev>',
-          to: ['delivered@resend.dev'],
+          to: [email],
           subject: `Gracias ${name} por contactarnos - Novoforma`,
           html: finalHtml,
           text: finalText,
