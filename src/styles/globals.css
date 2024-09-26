@@ -18,7 +18,3 @@ html {
   font-family: system-ui, sans-serif;
   background: #13151a;
 }
-
-strong {
-  @apply text-primary-950;
-}
