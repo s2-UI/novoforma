@@ -1,16 +1,7 @@
 ---
-import { Image } from 'astro:assets'
-
 import GalleryImage from '@/components/GalleryImage.astro'
 
-const galleryImages = [
-  { src: '/02.jpeg?height=400&width=600', alt: 'Proyecto de renovación de cocina' },
-  { src: '/03.jpeg?height=400&width=600', alt: 'Construcción de oficina moderna' },
-  { src: '/04.jpeg?height=400&width=600', alt: 'Remodelación de baño de lujo' },
-  { src: '/05.jpeg?height=400&width=600', alt: 'Proyecto de construcción residencial' },
-  { src: '/06.jpeg?height=400&width=600', alt: 'Diseño de interiores comercial' },
-  { src: '/07.jpeg?height=400&width=600', alt: 'Renovación de fachada histórica' },
-]
+import { projects } from '@/data/projects'
 ---
 
 <section
@@ -23,10 +14,13 @@ const galleryImages = [
     </h2>
     <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
       {
-        galleryImages.map((image, index) => (
+        projects.slice(0, 5).map(project => (
           <GalleryImage
-            src={image.src}
-            alt={image.alt}
+            transition:name={`image-${project.slug}`}
+            title={project.title}
+            src={`/projects/${project.slug}/${project.cover}`}
+            alt={project.alt}
+            link={`/projects/${project.slug}`}
           />
         ))
       }

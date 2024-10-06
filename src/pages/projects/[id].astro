@@ -1,0 +1,71 @@
+---
+export const prerender = true
+
+import { Image } from 'astro:assets'
+
+import Layout from '@/layouts/Layout.astro'
+
+import { projects } from '@/data/projects'
+
+export async function getStaticPaths() {
+  return projects.map(project => ({
+    params: { id: project.slug },
+    props: { project },
+  }))
+}
+
+const { project } = Astro.props
+---
+
+<Layout
+  title='Construcción y Reformas en Barcelona | Novoforma'
+  robots={true}
+>
+  <main class='flex-1'>
+    <section class='w-full pb-4 pt-20 bg-zinc-900 text-primary-50'>
+      <div class='container mx-auto px-4 md:px-6 lg:h-full'>
+        <div class='flex flex-col items-center text-center gap-8 lg:grid lg:grid-cols-2 lg:place-content-center'>
+          <div class='prose'>
+            <h1
+              class='text-3xl font-bold mb-4 tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none prose prose-invert'
+            >
+              {project.title}
+            </h1>
+            <p class='text-center text-zinc-400 md:text-xl prose mb-8 lg:text-zinc-50'>{project.description}</p>
+          </div>
+          <Image
+            transition:name={`image-${project.slug}`}
+            src={`/projects/${project.slug}/${project.cover}`}
+            alt={project.title}
+            width={1920}
+            height={1080}
+            class='w-full h-96 object-cover'
+            loading={'lazy'}
+          />
+        </div>
+      </div>
+    </section>
+
+    <section
+      id='servicios'
+      class='w-full py-4 bg-zinc-100'
+    >
+      <div class='container mx-auto px-4 md:px-6'>
+        <div class='grid gap-4 lg:grid-cols-4'>
+          {
+            project.images.map(image => (
+              <Image
+                src={`/projects/${project.slug}/${image.src}`}
+                alt={image.alt}
+                width={600}
+                height={400}
+                class='w-full h-64 object-cover bg-center rounded-lg'
+                loading={'lazy'}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

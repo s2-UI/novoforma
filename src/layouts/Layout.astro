@@ -1,8 +1,10 @@
 ---
 import { Image } from 'astro:assets'
+import { ViewTransitions } from 'astro:transitions'
 import '../styles/globals.css'
 import Whatsaap from '@/components/Whatsaap.astro'
-import { Phone } from 'lucide-react'
+import { Phone, Mail } from 'lucide-react'
+import EmailForm from '@/components/EmailForm'
 
 interface Props {
   title: string
@@ -138,6 +140,7 @@ const { title, robots } = Astro.props
         />
       )
     }
+    <ViewTransitions />
   </head>
   <body>
     <div class='flex flex-col min-h-screen bg-zinc-50 text-zinc-900 overflow-x-hidden'>
@@ -219,8 +222,8 @@ const { title, robots } = Astro.props
           <div class='flex items-center gap-4 lg:flex-row-reverse'>
             <a
               href='#contacto'
-              class='bg-primary-600 text-primary-50 font-semibold py-2 px-4 cursor-pointer rounded-sm hover:bg-primary-700 hover:transition-all'
-              >Obtener Presupuesto</a
+              class='bg-primary-600 text-nowrap text-primary-50 font-semibold py-2 px-4 cursor-pointer rounded-sm hover:bg-primary-700 hover:transition-all'
+              >Pide Presupuesto</a
             >
           </div>
         </div>
@@ -229,6 +232,55 @@ const { title, robots } = Astro.props
       <slot />
 
       <Whatsaap />
+
+      <section
+        id='contacto'
+        class='w-full py-12 md:py-24 lg:py-32 bg-black text-zinc-50'
+      >
+        <div class='container mx-auto px-4 md:px-6'>
+          <div class='grid items-center gap-6 lg:grid-cols-2 lg:gap-12'>
+            <div class='space-y-4'>
+              <h2 class='text-3xl font-bold tracking-tighter sm:text-4xl prose prose-invert'>Contáctanos</h2>
+              <p class='max-w-[600px] prose text-zinc-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
+                ¿Estás listo para llevar tu proyecto al siguiente nivel? <strong class='prose-invert'
+                  >Contáctanos</strong
+                >
+                hoy mismo para una consulta gratuita y obtén un presupuesto adaptado a tus necesidades.
+              </p>
+              <div class='space-y-2'>
+                <div class='flex items-center'>
+                  <Phone className='mr-2 h-4 w-4 text-primary-600' />
+                  <span class='prose prose-invert'
+                    ><a
+                      href='tel:667757013'
+                      title='+34 667 757 013'
+                      class='hover:text-primary-400'
+                      >+34 667 757 013</a
+                    ></span
+                  >
+                </div>
+                <div class='flex items-center'>
+                  <Phone className='mr-2 h-4 w-4 text-primary-600' />
+                  <span class='prose prose-invert'
+                    ><a
+                      href='tel:696460538'
+                      title='+34 696 460 538'
+                      class='hover:text-primary-400'
+                      >+34 696 460 538</a
+                    ></span
+                  >
+                </div>
+                <div class='flex items-center'>
+                  <Mail className='mr-2 h-4 w-4 text-primary-600' />
+                  <span class='prose prose-invert'>info@Novoforma.com</span>
+                </div>
+              </div>
+            </div>
+
+            <EmailForm client:load />
+          </div>
+        </div>
+      </section>
 
       <footer class='py-6 w-full px-4 md:px-6 border-t border-zinc-300 bg-zinc-900 text-zinc-50'>
         <div class='container mx-auto flex flex-col gap-2 sm:flex-row shrink-0 items-center'>
