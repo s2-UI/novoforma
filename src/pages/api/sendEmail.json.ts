@@ -7,8 +7,6 @@ export const POST: APIRoute = async ({ params, request }) => {
   const body = await request.json()
   const { from, to, subject, html, text } = body
 
-  console.log({ from, to, subject, html, text })
-
   if (!from || !to || !subject || !html || !text) {
     return new Response(
       JSON.stringify({
