@@ -1,4 +1,4 @@
-import { Body, Container, Head, Hr, Html, Img, Preview, Text } from '@react-email/components'
+import { Body, Container, Head, Hr, Html, Img, Link, Preview, Text } from '@react-email/components'
 
 interface SampleEmailProps {
   userFirstname: string
@@ -11,7 +11,7 @@ export const SampleEmail = ({ userFirstname }: SampleEmailProps) => (
     <Body style={main}>
       <Container style={container}>
         <Img
-          src={`https://astro.build/assets/press/astro-logo-dark.svg`}
+          src={`https://www.novoformaserveis.es/logo.png`}
           width='170'
           height='50'
           alt='Novoforma Logo'
@@ -39,9 +39,9 @@ export const SampleEmail = ({ userFirstname }: SampleEmailProps) => (
           <br />
           Novoforma
           <br />
-          [Correo electrónico] | +34 667 757 013 / +34 696 460 538
+          info@novoformaserveis.es | +34 667 757 013 / +34 696 460 538
           <br />
-          [Enlace a la web]
+          https://www.novoformaserveis.es/
         </Text>
         <Hr style={hr} />
         <Text style={footer}>470 Noor Ave STE B #1148, South San Francisco, CA 94080</Text>

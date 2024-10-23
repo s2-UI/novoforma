@@ -22,7 +22,7 @@ const EmailForm = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          from: 'Acme <onboarding@resend.dev>',
+          from: 'info@novoformaserveis.es',
           to: [email],
           subject: `Gracias ${name} por contactarnos - Novoforma`,
           html: finalHtml,
