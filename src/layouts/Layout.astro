@@ -9,9 +9,10 @@ import EmailForm from '@/components/EmailForm'
 interface Props {
   title: string
   robots?: boolean
+  description?: string
 }
 
-const { title, robots } = Astro.props
+const { title, robots = true, description = 'Novoforma es una empresa especializada en construcción y reformas en Barcelona con más de 20 años de experiencia. Ofrecemos servicios de construcción, reformas integrales y proyectos comerciales con los más altos estándares de calidad.' } = Astro.props
 ---
 
 <!doctype html>
@@ -21,125 +22,122 @@ const { title, robots } = Astro.props
 >
   <head>
     <meta charset='UTF-8' />
-    <meta
-      name='description'
-      content='En Novoforma, somos expertos en construcción y reformas para hogares y negocios. Ofrecemos soluciones personalizadas con más de 20 años de experiencia en proyectos de alta calidad. Contáctanos para un presupuesto gratuito.'
-    />
-    <meta
-      name='keywords'
-      content='reformas, construcción, reformas de hogar, reformas comerciales, renovación de espacios, proyectos de construcción, empresa de reformas, reformas integrales, reformas en Barcelona, presupuesto reformas, reformas oficinas, reformas locales comerciales'
-    />
-    <meta
-      name='viewport'
-      content='width=device-width, initial-scale=1.0'
-    />
-    <link
-      rel='icon'
-      type='image/png'
-      href='/logo.png'
-    />
-    <meta
-      name='generator'
-      content={Astro.generator}
-    />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <link rel='icon' type='image/png' href='/logo.png' />
+    
+    <!-- SEO Meta Tags -->
     <title>{title}</title>
+    <meta name='description' content={description} />
+    <meta name='keywords' content='construcción Barcelona, reformas Barcelona, reformas integrales, empresa construcción Barcelona, reformas pisos Barcelona, reformas oficinas Barcelona, construcción de obra nueva, presupuesto reforma Barcelona, arquitectos Barcelona, constructora Barcelona, reformas baños Barcelona, reformas cocinas Barcelona, albañiles Barcelona, fontaneros Barcelona, electricistas Barcelona' />
+    <meta name='author' content='Novoforma' />
+    <meta name='robots' content={robots ? 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' : 'noindex, nofollow'} />
+    <meta name='language' content='Spanish' />
+    <meta name='geo.region' content='ES-CT' />
+    <meta name='geo.placename' content='Barcelona' />
+    
+    <!-- Canonical URL -->
+    <link rel='canonical' href={`https://www.novoformaserveis.es${Astro.url.pathname}`} />
 
-    <link
-      rel='canonical'
-      href='https://www.novoformaserveis.es/'
-    />
+    <!-- Open Graph / Facebook -->
+    <meta property='og:type' content='website' />
+    <meta property='og:site_name' content='Novoforma' />
+    <meta property='og:url' content={`https://www.novoformaserveis.es${Astro.url.pathname}`} />
+    <meta property='og:title' content={title} />
+    <meta property='og:description' content={description} />
+    <meta property='og:image' content='https://www.novoformaserveis.es/social-img.png' />
+    <meta property='og:image:width' content='1200' />
+    <meta property='og:image:height' content='630' />
+    <meta property='og:image:alt' content='Novoforma - Construcción y Reformas en Barcelona' />
+    <meta property='og:locale' content='es_ES' />
 
-    <meta
-      property='og:site_name'
-      content='Novoforma'
-    />
-    <meta
-      property='og:title'
-      content='Construcción y Reformas en Barcelona | Novoforma'
-    />
-    <meta
-      property='og:description'
-      content='Novoforma ofrece servicios de construcción y reformas en Barcelona, garantizando calidad y satisfacción en cada proyecto.'
-    />
-    <meta
-      property='og:url'
-      content='https://www.novoformaserveis.es/'
-    />
-    <meta
-      property='og:image'
-      content='https://www.novoformaserveis.es/social-img.png'
-    />
-    <meta
-      property='og:image:alt'
-      content='Imagen de Novoforma'
-    />
-    <meta
-      property='og:image:secure_url'
-      content='https://www.novoformaserveis.es/social-img.png'
-    />
-    <meta
-      property='og:image:type'
-      content='image/png'
-    />
-    <meta
-      property='og:image:width'
-      content='1200'
-    />
-    <meta
-      property='og:image:height'
-      content='630'
-    />
-    <meta
-      property='og:type'
-      content='website'
-    />
-    <meta
-      property='og:locale'
-      content='es_ES'
-    />
+    <!-- Twitter -->
+    <meta name='twitter:card' content='summary_large_image' />
+    <meta name='twitter:site' content='@Novoforma' />
+    <meta name='twitter:creator' content='@Novoforma' />
+    <meta name='twitter:title' content={title} />
+    <meta name='twitter:description' content={description} />
+    <meta name='twitter:image' content='https://www.novoformaserveis.es/social-img.png' />
+    <meta name='twitter:image:alt' content='Novoforma - Construcción y Reformas en Barcelona' />
 
-    <meta
-      name='twitter:card'
-      content='summary_large_image'
-    />
-    <meta
-      name='twitter:site'
-      content='@Novoforma'
-    />
-    <meta
-      name='twitter:creator'
-      content='@Novoforma'
-    />
-    <meta
-      name='twitter:title'
-      content='Construcción y Reformas en Barcelona | Novoforma'
-    />
-    <meta
-      name='twitter:description'
-      content='Novoforma ofrece servicios de construcción y reformas en Barcelona, garantizando calidad y satisfacción en cada proyecto.'
-    />
-    <meta
-      name='twitter:image'
-      content='https://www.novoformaserveis.es/social-img.png'
-    />
-    <meta
-      name='twitter:image:alt'
-      content='Imagen de Novoforma'
-    />
+    <!-- Structured Data (Schema.org) -->
+    <script type='application/ld+json' set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'LocalBusiness',
+      name: 'Novoforma',
+      description: description,
+      url: 'https://www.novoformaserveis.es',
+      logo: 'https://www.novoformaserveis.es/logo.png',
+      image: 'https://www.novoformaserveis.es/social-img.png',
+      telephone: ['+34 667 757 013', '+34 696 460 538'],
+      email: 'info@novoformaserveis.es',
+      priceRange: '$$',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Barcelona',
+        addressCountry: 'ES'
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 41.3851,
+        longitude: 2.1734
+      },
+      areaServed: {
+        '@type': 'City',
+        name: 'Barcelona'
+      },
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Servicios de Construcción y Reformas',
+        itemListElement: [
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Construcción de Obra Nueva',
+              description: 'Construcción de viviendas y edificios desde los cimientos hasta los acabados'
+            }
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Reformas Integrales',
+              description: 'Reformas completas de viviendas y espacios comerciales'
+            }
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Proyectos Comerciales',
+              description: 'Diseño y ejecución de reformas para oficinas y locales comerciales'
+            }
+          }
+        ]
+      }
+    })} />
 
-    {
-      robots ? (
-        <meta
-          name='robots'
-          content='index, follow'
-        />
-      ) : (
-        <meta
-          name='robots'
-          content='noindex, nofollow'
-        />
-      )
-    }
+    <!-- Organization Schema -->
+    <script type='application/ld+json' set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'Novoforma',
+      url: 'https://www.novoformaserveis.es',
+      logo: 'https://www.novoformaserveis.es/logo.png',
+      contactPoint: {
+        '@type': 'ContactPoint',
+        telephone: '+34-667-757-013',
+        contactType: 'customer service',
+        areaServed: 'ES',
+        availableLanguage: 'es'
+      },
+      sameAs: [
+        'https://www.facebook.com/novoforma',
+        'https://www.instagram.com/novoforma'
+      ]
+    })} />
+
+    <meta name='generator' content={Astro.generator} />
     <ViewTransitions />
   </head>
   <body>
@@ -153,7 +151,7 @@ const { title, robots } = Astro.props
           >
             <Image
               src='/logo.png'
-              alt='Novoforma'
+              alt='Novoforma - Empresa de construcción y reformas en Barcelona'
               width={214}
               height={161}
               class='w-14'

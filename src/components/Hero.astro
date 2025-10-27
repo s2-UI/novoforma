@@ -9,6 +9,13 @@ const heroImages = [
   '/projects/barcelona-balmes/barcelona-balmes-05.jpeg',
   '/projects/barcelona-balmes/barcelona-balmes-07.jpeg',
 ]
+
+const heroAlts = [
+  'Reforma integral de piso en Barcelona - Salón moderno',
+  'Reforma de cocina completa Barcelona',
+  'Reforma de baño moderno Barcelona',
+  'Espacios reformados Barcelona Novoforma'
+]
 ---
 
 <section class='relative w-full h-screen overflow-hidden bg-zinc-900'>
@@ -22,7 +29,7 @@ const heroImages = [
         >
           <Image
             src={src}
-            alt={`Proyecto Novoforma ${index + 1}`}
+            alt={heroAlts[index] || `Proyecto de reforma Barcelona ${index + 1} - Novoforma`}
             width={1920}
             height={1080}
             class='w-full h-full object-cover'
