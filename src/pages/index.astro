@@ -17,30 +17,41 @@ import { Building2, Hammer, PaintBucket, Phone, Mail } from 'lucide-react'
       class='w-full py-12 md:py-24 lg:py-32 bg-zinc-100'
     >
       <div class='container mx-auto px-4 md:px-6'>
-        <h2 class='text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8 prose'>
-          Nuestros Servicios
-        </h2>
+        <div class='text-center mb-12'>
+          <h2 class='text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4 text-zinc-900'>
+            Nuestros Servicios
+          </h2>
+          <p class='text-lg text-zinc-600 max-w-2xl mx-auto'>
+            Soluciones integrales para construcción y reformas con más de 20 años de experiencia
+          </p>
+        </div>
         <div class='grid grid-cols-1 md:grid-cols-3 gap-8'>
-          <div class='flex flex-col items-center text-center'>
-            <Hammer className='h-12 w-12 mb-4 text-primary-600' />
-            <h3 class='text-xl font-bold mb-2 prose'>Construcción</h3>
-            <p class='prose'>
+          <div class='flex flex-col items-center text-center bg-white p-8 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 border border-zinc-100'>
+            <div class='mb-4 p-4 rounded-full bg-primary-100'>
+              <Hammer className='h-12 w-12 text-primary-600' />
+            </div>
+            <h3 class='text-xl font-bold mb-3 text-zinc-900'>Construcción</h3>
+            <p class='text-zinc-600 leading-relaxed'>
               Desde los cimientos hasta los acabados, materializamos tu visión con precisión y calidad en cada etapa del
               proyecto. Confía en nuestro equipo para construir tu espacio ideal.
             </p>
           </div>
-          <div class='flex flex-col items-center text-center'>
-            <PaintBucket className='h-12 w-12 mb-4 text-primary-600' />
-            <h3 class='text-xl font-bold mb-2 prose'>Reformas</h3>
-            <p class='prose'>
+          <div class='flex flex-col items-center text-center bg-white p-8 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 border border-zinc-100'>
+            <div class='mb-4 p-4 rounded-full bg-primary-100'>
+              <PaintBucket className='h-12 w-12 text-primary-600' />
+            </div>
+            <h3 class='text-xl font-bold mb-3 text-zinc-900'>Reformas</h3>
+            <p class='text-zinc-600 leading-relaxed'>
               Renueva y revitaliza tus espacios con nuestra experiencia en reformas integrales. Aportamos soluciones
               creativas que transforman tu hogar o negocio.
             </p>
           </div>
-          <div class='flex flex-col items-center text-center'>
-            <Building2 className='h-12 w-12 mb-4 text-primary-600' />
-            <h3 class='text-xl font-bold mb-2 prose'>Proyectos Comerciales</h3>
-            <p class='prose'>
+          <div class='flex flex-col items-center text-center bg-white p-8 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 border border-zinc-100'>
+            <div class='mb-4 p-4 rounded-full bg-primary-100'>
+              <Building2 className='h-12 w-12 text-primary-600' />
+            </div>
+            <h3 class='text-xl font-bold mb-3 text-zinc-900'>Proyectos Comerciales</h3>
+            <p class='text-zinc-600 leading-relaxed'>
               Ofrecemos soluciones personalizadas para oficinas, locales y espacios comerciales. Diseñamos y ejecutamos
               reformas que maximizan la funcionalidad y el atractivo visual de tu negocio.
             </p>
@@ -56,52 +67,63 @@ import { Building2, Hammer, PaintBucket, Phone, Mail } from 'lucide-react'
       class='w-full py-12 md:py-24 lg:py-32'
     >
       <div class='container mx-auto px-4 md:px-6'>
-        <div class='grid justify-center items-center gap-6'>
+        <div class='grid justify-center items-center gap-8 lg:grid-cols-2'>
           <div class='flex flex-col justify-center space-y-4'>
-            <h2 class='text-3xl font-bold tracking-tighter sm:text-4xl prose'>Sobre Novoforma</h2>
-            <p class='max-w-[600px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed prose'>
-              Con más de 20 años de experiencia, en <strong>Novoforma</strong> somos líderes en la construcción y reformas
+            <h2 class='text-3xl font-bold tracking-tighter sm:text-4xl text-zinc-900 mb-2'>Sobre Novoforma</h2>
+            <p class='text-lg text-zinc-700 leading-relaxed'>
+              Con más de <strong>20 años de experiencia</strong>, en <strong class='text-primary-600'>Novoforma</strong> somos líderes en la construcción y reformas
               de espacios residenciales y comerciales. Nuestro equipo de profesionales certificados se dedica a entregar
               resultados excepcionales, superando constantemente las expectativas.
             </p>
-            <ul class='grid gap-2 py-4'>
-              <li class='flex items-center gap-2'>
-                <svg
-                  class='h-4 w-4 shrink-0 fill-current text-primary-600'
-                  xmlns='http://www.w3.org/2000/svg'
-                  viewBox='0 0 24 24'
-                >
-                  <path
-                    d='M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-.997-4L6.76 11.757l1.414-1.414 2.829 2.829 5.656-5.657 1.415 1.414L11.003 16z'
-                  ></path>
-                </svg>
-                <span class='prose'>Profesionales licenciados y asegurados</span>
+            <ul class='grid gap-3 py-4'>
+              <li class='flex items-center gap-3'>
+                <div class='flex-shrink-0 w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center'>
+                  <svg
+                    class='h-5 w-5 fill-current text-primary-600'
+                    xmlns='http://www.w3.org/2000/svg'
+                    viewBox='0 0 24 24'
+                  >
+                    <path
+                      d='M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-.997-4L6.76 11.757l1.414-1.414 2.829 2.829 5.656-5.657 1.415 1.414L11.003 16z'
+                    ></path>
+                  </svg>
+                </div>
+                <span class='text-zinc-700'>Profesionales licenciados y asegurados</span>
               </li>
-              <li class='flex items-center gap-2'>
-                <svg
-                  class='h-4 w-4 shrink-0 fill-current text-primary-600'
-                  xmlns='http://www.w3.org/2000/svg'
-                  viewBox='0 0 24 24'
-                >
-                  <path
-                    d='M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-.997-4L6.76 11.757l1.414-1.414 2.829 2.829 5.656-5.657 1.415 1.414L11.003 16z'
-                  ></path>
-                </svg>
-                <span class='prose'>Compromiso con la calidad y la seguridad</span>
+              <li class='flex items-center gap-3'>
+                <div class='flex-shrink-0 w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center'>
+                  <svg
+                    class='h-5 w-5 fill-current text-primary-600'
+                    xmlns='http://www.w3.org/2000/svg'
+                    viewBox='0 0 24 24'
+                  >
+                    <path
+                      d='M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-.997-4L6.76 11.757l1.414-1.414 2.829 2.829 5.656-5.657 1.415 1.414L11.003 16z'
+                    ></path>
+                  </svg>
+                </div>
+                <span class='text-zinc-700'>Compromiso con la calidad y la seguridad</span>
               </li>
-              <li class='flex items-center gap-2'>
-                <svg
-                  class='h-4 w-4 shrink-0 fill-current text-primary-600'
-                  xmlns='http://www.w3.org/2000/svg'
-                  viewBox='0 0 24 24'
-                >
-                  <path
-                    d='M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-.997-4L6.76 11.757l1.414-1.414 2.829 2.829 5.656-5.657 1.415 1.414L11.003 16z'
-                  ></path>
-                </svg>
-                <span class='prose'>Diseño innovador y prácticas sostenibles</span>
+              <li class='flex items-center gap-3'>
+                <div class='flex-shrink-0 w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center'>
+                  <svg
+                    class='h-5 w-5 fill-current text-primary-600'
+                    xmlns='http://www.w3.org/2000/svg'
+                    viewBox='0 0 24 24'
+                  >
+                    <path
+                      d='M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-.997-4L6.76 11.757l1.414-1.414 2.829 2.829 5.656-5.657 1.415 1.414L11.003 16z'
+                    ></path>
+                  </svg>
+                </div>
+                <span class='text-zinc-700'>Diseño innovador y prácticas sostenibles</span>
               </li>
             </ul>
+          </div>
+          <div class='hidden lg:flex items-center justify-center'>
+            <div class='w-full max-w-md h-64 bg-gradient-to-br from-primary-600 to-primary-800 rounded-lg shadow-xl flex items-center justify-center'>
+              <p class='text-white text-2xl font-bold text-center px-8'>+20 Años<br/>de Experiencia</p>
+            </div>
           </div>
         </div>
       </div>
@@ -112,9 +134,14 @@ import { Building2, Hammer, PaintBucket, Phone, Mail } from 'lucide-react'
       class='w-full py-12 md:py-24 lg:py-32 bg-zinc-100'
     >
       <div class='container mx-auto px-4 md:px-6'>
-        <h2 class='text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8 prose'>
-          Lo que Dicen Nuestros Clientes
-        </h2>
+        <div class='text-center mb-12'>
+          <h2 class='text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4 text-zinc-900'>
+            Lo que Dicen Nuestros Clientes
+          </h2>
+          <p class='text-lg text-zinc-600 max-w-2xl mx-auto'>
+            Testimonios reales de clientes satisfechos con nuestros servicios
+          </p>
+        </div>
         <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
           {
             [
@@ -137,9 +164,9 @@ import { Building2, Hammer, PaintBucket, Phone, Mail } from 'lucide-react'
                   'Novoforma manejó la renovación de nuestro edificio con profesionalismo y eficiencia. Un equipo excelente para proyectos complejos.',
               },
             ].map((testimonial, index) => (
-              <div class='flex flex-col items-center text-center bg-zinc-50 p-6 rounded-lg shadow-md'>
+              <div class='flex flex-col bg-white p-6 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 border border-zinc-100'>
                 <svg
-                  class=' h-12 w-12 mb-4 text-primary-600'
+                  class='h-10 w-10 mb-4 text-primary-600'
                   xmlns='http://www.w3.org/2000/svg'
                   fill='none'
                   viewBox='0 0 24 24'
@@ -152,9 +179,11 @@ import { Building2, Hammer, PaintBucket, Phone, Mail } from 'lucide-react'
                     d='M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z'
                   />
                 </svg>
-                <p class='mb-4 prose'>{testimonial.comment}</p>
-                <h3 class='font-bold prose'>{testimonial.name}</h3>
-                <p class='text-sm prose'>{testimonial.role}</p>
+                <p class='mb-6 text-zinc-700 italic flex-grow leading-relaxed'>{testimonial.comment}</p>
+                <div class='mt-auto'>
+                  <h3 class='font-bold text-zinc-900'>{testimonial.name}</h3>
+                  <p class='text-sm text-zinc-600'>{testimonial.role}</p>
+                </div>
               </div>
             ))
           }
