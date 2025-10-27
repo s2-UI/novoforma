@@ -7,7 +7,7 @@ interface SampleEmailProps {
 export const SampleEmail = ({ userFirstname }: SampleEmailProps) => (
   <Html>
     <Head />
-    <Preview>The sales intelligence platform that helps you uncover qualified leads.</Preview>
+    <Preview>Gracias por contactar con Novoforma</Preview>
     <Body style={main}>
       <Container style={container}>
         <Img
@@ -44,7 +44,7 @@ export const SampleEmail = ({ userFirstname }: SampleEmailProps) => (
           https://www.novoformaserveis.es/
         </Text>
         <Hr style={hr} />
-        <Text style={footer}>470 Noor Ave STE B #1148, South San Francisco, CA 94080</Text>
+        <Text style={footer}>© 2024 Novoforma. Todos los derechos reservados.</Text>
       </Container>
     </Body>
   </Html>
