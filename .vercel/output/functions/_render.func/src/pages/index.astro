@@ -1,9 +1,11 @@
 ---
+import { Image } from 'astro:assets'
+
 import Layout from '@/layouts/Layout.astro'
 import Hero from '@/components/Hero.astro'
 import Gallery from '@/components/Gallery.astro'
 
-import { Building2, Hammer, PaintBucket } from 'lucide-react'
+import { Building2, Hammer, PaintBucket, Phone, Mail } from 'lucide-react'
 ---
 
 <Layout 
@@ -187,7 +189,7 @@ import { Building2, Hammer, PaintBucket } from 'lucide-react'
                 comment:
                   'Novoforma gestionó la renovación completa de nuestro edificio en Sant Martí. Manejo profesional de permisos, coordinación con vecinos y ejecución impecable. Un equipo de confianza para proyectos complejos.',
               },
-                          ].map((testimonial) => (
+            ].map((testimonial, index) => (
               <article class='flex flex-col bg-white p-6 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 border border-zinc-100'>
                 <svg
                   class='h-10 w-10 mb-4 text-primary-600'

@@ -1,6 +1,5 @@
 ---
 import { Image } from 'astro:assets'
-import { projects } from '@/data/projects'
 
 // Seleccionamos algunas imágenes de proyectos para el slider
 const heroImages = [
@@ -18,9 +17,9 @@ const heroAlts = [
 ]
 ---
 
-<section class='relative w-full h-screen overflow-hidden bg-zinc-900'>
+<section class='relative w-full h-screen overflow-hidden bg-zinc-900' role='banner' aria-label='Hero section'>
   <!-- Slider de imágenes de fondo -->
-  <div class='absolute inset-0 z-0'>
+  <div class='absolute inset-0 z-0' role='img' aria-label='Imágenes de proyectos de reformas'>
     {
       heroImages.map((src, index) => (
         <div
