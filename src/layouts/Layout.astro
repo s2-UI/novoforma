@@ -139,11 +139,114 @@ const { title, robots = true, description = 'Novoforma es una empresa especializ
 
     <meta name='generator' content={Astro.generator} />
     <ViewTransitions />
+
+    <!-- Google tag (gtag.js) -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-Y5FXTGWF07"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-Y5FXTGWF07');
+    </script>
   </head>
   <body>
     <nav class='flex flex-col min-h-screen bg-zinc-50 text-zinc-900 overflow-x-hidden'>
       <header class='px-2 bg-zinc-950 text-zinc-50 fixed top-0 w-full z-50 border-b border-primary-900 shadow-sm' role='banner'>
-        <nav class='container mx-auto flex items-center justify-between gap-8 h-16' role='navigation' aria-label='Menú principal'>
+        <!-- Desktop: Dos líneas -->
+        <div class='hidden lg:block'>
+          <!-- Primera línea: Logo + Teléfonos -->
+          <div class='container mx-auto flex items-center justify-between gap-8 h-12 border-b border-zinc-800'>
+            <a
+              class='flex items-center justify-center gap-2'
+              href='/'
+              title='Novoforma - Inicio'
+              aria-label='Ir a la página de inicio'
+            >
+              <Image
+                src='/logo.png'
+                alt='Novoforma - Empresa de construcción y reformas en Barcelona'
+                width={214}
+                height={161}
+                class='w-10'
+                loading={'eager'}
+              />
+              <span class='font-semibold text-lg uppercase'
+                ><span class='font-black text-primary-600'>Novo</span>forma</span
+              >
+            </a>
+            <div class='flex items-center justify-center gap-6'>
+              <div class='flex items-center'>
+                <Phone className='mr-2 h-4 w-4 text-primary-400' />
+                <span class='prose prose-invert'
+                  ><a
+                    href='tel:667757013'
+                    title='+34 667 757 013'
+                    class='hover:text-primary-400 text-sm'
+                    >+34 667 757 013</a
+                  ></span
+                >
+              </div>
+              <div class='flex items-center'>
+                <Phone className='mr-2 h-4 w-4 text-primary-400' />
+                <span class='prose prose-invert'
+                  ><a
+                    href='tel:696460538'
+                    title='+34 696 460 538'
+                    class='hover:text-primary-400 text-sm'
+                    >+34 696 460 538</a
+                  ></span
+                >
+              </div>
+            </div>
+          </div>
+          
+          <!-- Segunda línea: Menú + CTA -->
+          <nav class='container mx-auto flex items-center justify-between gap-8 h-12' role='navigation' aria-label='Menú principal'>
+            <nav class='flex gap-6'>
+              <a
+                class='text-sm font-medium hover:text-primary-500 transition-colors'
+                href='#servicios'
+              >
+                Servicios
+              </a>
+              <a
+                class='text-sm font-medium hover:text-primary-500 transition-colors'
+                href='#galeria'
+              >
+                Galería
+              </a>
+              <a
+                class='text-sm font-medium hover:text-primary-500 transition-colors'
+                href='#nosotros'
+              >
+                Nosotros
+              </a>
+              <a
+                class='text-sm font-medium hover:text-primary-500 transition-colors'
+                href='#testimonios'
+              >
+                Testimonios
+              </a>
+              <a
+                class='text-sm font-medium hover:text-primary-500 transition-colors'
+                href='#contacto'
+              >
+                Contacto
+              </a>
+            </nav>
+            <div class='flex items-center gap-4'>
+              <a
+                href='#contacto'
+                class='bg-primary-600 text-nowrap text-primary-50 font-semibold py-1.5 px-3 cursor-pointer rounded-sm hover:bg-primary-700 hover:transition-all text-sm'
+                >Pide Presupuesto</a
+              >
+            </div>
+          </nav>
+        </div>
+
+        <!-- Mobile: Una línea con logo + CTA -->
+        <nav class='lg:hidden container mx-auto flex items-center justify-between gap-4 h-16' role='navigation' aria-label='Menú principal'>
           <a
             class='flex items-center justify-center gap-2'
             href='/'
@@ -155,73 +258,17 @@ const { title, robots = true, description = 'Novoforma es una empresa especializ
               alt='Novoforma - Empresa de construcción y reformas en Barcelona'
               width={214}
               height={161}
-              class='w-14'
+              class='w-10'
               loading={'eager'}
             />
-            <span class='font-semibold text-xl uppercase'
+            <span class='font-semibold text-lg uppercase'
               ><span class='font-black text-primary-600'>Novo</span>forma</span
             >
           </a>
-          <div class='hidden items-center justify-center gap-8 flex-1 lg:flex'>
-            <div class='flex items-center'>
-              <Phone className='mr-2 h-4 w-4 text-primary-400' />
-              <span class='prose prose-invert'
-                ><a
-                  href='tel:667757013'
-                  title='+34 667 757 013'
-                  class='hover:text-primary-400'
-                  >+34 667 757 013</a
-                ></span
-              >
-            </div>
-            <div class='flex items-center'>
-              <Phone className='mr-2 h-4 w-4 text-primary-400' />
-              <span class='prose prose-invert'
-                ><a
-                  href='tel:696460538'
-                  title='+34 696 460 538'
-                  class='hover:text-primary-400'
-                  >+34 696 460 538</a
-                ></span
-              >
-            </div>
-          </div>
-          <nav class='ml-auto hidden gap-4 lg:flex'>
-            <a
-              class='text-sm font-medium hover:text-primary-500 transition-colors'
-              href='#servicios'
-            >
-              Servicios
-            </a>
-            <a
-              class='text-sm font-medium hover:text-primary-500 transition-colors'
-              href='#galeria'
-            >
-              Galería
-            </a>
-            <a
-              class='text-sm font-medium hover:text-primary-500 transition-colors'
-              href='#nosotros'
-            >
-              Nosotros
-            </a>
-            <a
-              class='text-sm font-medium hover:text-primary-500 transition-colors'
-              href='#testimonios'
-            >
-              Testimonios
-            </a>
-            <a
-              class='text-sm font-medium hover:text-primary-500 transition-colors'
-              href='#contacto'
-            >
-              Contacto
-            </a>
-          </nav>
-          <div class='flex items-center gap-4 lg:flex-row-reverse'>
+          <div class='flex items-center gap-4'>
             <a
               href='#contacto'
-              class='bg-primary-600 text-nowrap text-primary-50 font-semibold py-2 px-4 cursor-pointer rounded-sm hover:bg-primary-700 hover:transition-all'
+              class='bg-primary-600 text-nowrap text-primary-50 font-semibold py-2 px-3 cursor-pointer rounded-sm hover:bg-primary-700 hover:transition-all text-sm'
               >Pide Presupuesto</a
             >
           </div>
@@ -234,7 +281,7 @@ const { title, robots = true, description = 'Novoforma es una empresa especializ
 
       <section
         id='contacto'
-        class='w-full py-12 md:py-24 lg:py-32 bg-black text-zinc-50'
+        class='w-full py-12 md:py-24 lg:py-32 bg-black text-zinc-50 scroll-mt-16 lg:scroll-mt-24'
       >
         <div class='container mx-auto px-4 md:px-6'>
           <div class='grid items-center gap-6 lg:grid-cols-2 lg:gap-12'>
