@@ -23,11 +23,34 @@ const EmailForm = () => {
         plainText: true,
       })
 
-      const res = await fetch('/api/sendEmail.json', {
+      // 1) Enviar notificación interna al email de la empresa con los datos del lead
+      const adminEmail = 'info@novoformaserveis.es'
+      const adminHtml = `
+        <h2>Nuevo contacto desde la web</h2>
+        <p><strong>Nombre:</strong> ${name}</p>
+        <p><strong>Teléfono:</strong> ${phone}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Mensaje:</strong></p>
+        <p>${(userMessage as string) || ''}</p>
+      `
+      const adminText = `Nuevo contacto desde la web\n\nNombre: ${name}\nTeléfono: ${phone}\nEmail: ${email}\n\nMensaje:\n${(userMessage as string) || ''}`
+
+      const adminRes = await fetch('/api/sendEmail.json', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          from: 'info@novoformaserveis.es',
+          to: [adminEmail],
+          subject: `Nuevo contacto: ${name}`,
+          html: adminHtml,
+          text: adminText,
+        }),
+      })
+
+      // 2) Enviar confirmación al usuario
+      const userRes = await fetch('/api/sendEmail.json', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           from: 'info@novoformaserveis.es',
           to: [email],
@@ -37,11 +60,11 @@ const EmailForm = () => {
         }),
       })
 
-      if (res.ok) {
+      if (adminRes.ok && userRes.ok) {
         setMessage({ type: 'success', text: '¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.' })
         ;(e.target as HTMLFormElement).reset()
       } else {
-        setMessage({ type: 'error', text: 'Error al enviar el mensaje. Por favor, inténtalo de nuevo.' })
+        setMessage({ type: 'error', text: 'No se pudo completar el envío. Intenta nuevamente más tarde.' })
       }
     } catch (error) {
       console.error(error)
